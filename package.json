@@ -1,0 +1,25 @@
+{
+  "name": "done_it",
+  "version": "1.0.0",
+  "description": "A server to process requests for my web client and from the firebase server",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swills044/SERVER-done_it.git"
+  },
+  "keywords": [
+    "server",
+    "repo",
+    "firebase",
+    "webclient"
+  ],
+  "author": "Sean Wills",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swills044/SERVER-done_it/issues"
+  },
+  "homepage": "https://github.com/swills044/SERVER-done_it#readme"
+}
