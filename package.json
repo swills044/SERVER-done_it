@@ -4,7 +4,8 @@
   "description": "A server to process requests for my web client and from the firebase server",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "node index.js",
+    "start": "node index.js"
   },
   "engines": {
     "node": "12.16.1"
