@@ -23,7 +23,8 @@ var express = require('express');
 var app = express();
 
 //Setup port
-app.listen(8080);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT);
 
 //Setup routes
 var draft = require('./api/draft.js');
