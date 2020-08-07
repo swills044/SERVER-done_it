@@ -16,8 +16,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-const fbAuth = require('./fbAuth')
-
 //Setup express web server framework
 var express = require('express');
 var app = express();
@@ -31,7 +29,7 @@ var draft = require('./api/draft.js');
 var origin = require('./api/origin.js');
 var auth = require('./api/auth.js');
 
-app.use('/draft', fbAuth, draft);
+app.use('/draft', draft);
 app.use('/origin', origin);
 app.use('/auth', auth);
 
