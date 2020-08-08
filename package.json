@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/swills044/SERVER-done_it#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "firebase": "^7.17.1",
     "firebase-admin": "^9.0.0"

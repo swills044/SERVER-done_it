@@ -20,6 +20,8 @@ const db = firebase.firestore();
 var express = require('express');
 var app = express();
 
+var cors = require('cors');
+
 //
 // var cors = require('cors')
 //
@@ -35,15 +37,18 @@ var draft = require('./api/draft.js');
 var origin = require('./api/origin.js');
 var auth = require('./api/auth.js');
 
+//Middleware
 app.use(express.json()); //Used to parse JSON bodies
+app.use(cors())
 
-app.use(function(req, res, next) {
-   res.header("Access-Control-Allow-Origin", 'http://cubedatamins.online');
-   res.header("Access-Control-Allow-Credentials", true);
-   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-   res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-   next();
-});
+// app.use(function(req, res, next) {
+//    res.header("Access-Control-Allow-Origin", 'http://cubedatamins.online');
+//    res.header("Access-Control-Allow-Origin", 'http://localhost:5000');
+//    res.header("Access-Control-Allow-Credentials", true);
+//    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+//    res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+//    next();
+// });
 
 app.use('/draft', draft);
 app.use('/origin', origin);
