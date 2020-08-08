@@ -8,15 +8,13 @@ var router = express.Router();
 // test route.
 router.post('/login', function (req, res) {
   try {
-    const email = req.query.email;
-    const pass = req.query.password;
-    console.log(req.body);
+    const email = req.body.email;
+    const pass = req.body.password;
     firebase.auth().signInWithEmailAndPassword(email, pass).catch(error => {
       res.status(400).send('Incorrect email or password');
     }).then(
       user => {
          res.send({user: user})
-
       }
     )
   } catch (e) {
@@ -26,13 +24,18 @@ router.post('/login', function (req, res) {
 });
 
 router.post('/register', function (req, res) {
-  const email = req.query.email;
-  const pass = req.query.password;
-  firebase.auth().createUserWithEmailAndPassword(email, pass).catch(error => {
-          res.status(400).send(error);
-        }).then(user => {
-          res.send({user: user});
-        });
+  try {
+    const email = req.body.email;
+    const pass = req.body.password;
+    firebase.auth().createUserWithEmailAndPassword(email, pass).catch(error => {
+      res.status(400).send(error);
+    }).then(user => {
+      res.send({user: user});
+    });
+  } catch (e) {
+    res.status(500).send(e);
+  }
+
 
 });
 module.exports = router;
