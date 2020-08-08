@@ -9,7 +9,7 @@ var router = express.Router();
 router.post('/login', function (req, res) {
   try {
     const email = req.body.email;
-    const pass = req.body.password;
+    const pass = req.body.pass;
     firebase.auth().signInWithEmailAndPassword(email, pass).catch(error => {
       res.status(400).send('Incorrect email or password');
     }).then(
@@ -26,7 +26,7 @@ router.post('/login', function (req, res) {
 router.post('/register', function (req, res) {
   try {
     const email = req.body.email;
-    const pass = req.body.password;
+    const pass = req.body.pass;
     firebase.auth().createUserWithEmailAndPassword(email, pass).catch(error => {
       res.status(400).send(error);
     }).then(user => {
