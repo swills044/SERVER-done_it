@@ -22,7 +22,7 @@ var app = express();
 
 //
 // var cors = require('cors')
-// 
+//
 // var app = express()
 // app.use(cors())
 
@@ -34,6 +34,8 @@ app.listen(PORT);
 var draft = require('./api/draft.js');
 var origin = require('./api/origin.js');
 var auth = require('./api/auth.js');
+
+app.use(express.json()); //Used to parse JSON bodies
 
 app.use(function(req, res, next) {
    res.header("Access-Control-Allow-Origin", 'http://cubedatamins.online');
