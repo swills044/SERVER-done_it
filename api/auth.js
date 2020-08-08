@@ -10,6 +10,7 @@ router.post('/login', function (req, res) {
   try {
     const email = req.query.email;
     const pass = req.query.password;
+    console.log(email, pass);
     firebase.auth().signInWithEmailAndPassword(email, pass).catch(error => {
       res.status(400).send('Incorrect email or password');
     }).then(
@@ -21,7 +22,7 @@ router.post('/login', function (req, res) {
   } catch (e) {
     res.status(500).send(e);
   }
-  
+
 });
 
 router.post('/register', function (req, res) {
