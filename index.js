@@ -20,6 +20,12 @@ const db = firebase.firestore();
 var express = require('express');
 var app = express();
 
+//
+// var cors = require('cors')
+// 
+// var app = express()
+// app.use(cors())
+
 //Setup port
 const PORT = process.env.PORT || 3000;
 app.listen(PORT);

@@ -7,17 +7,21 @@ var router = express.Router();
 
 // test route.
 router.post('/login', function (req, res) {
-  const email = req.query.email;
-  const pass = req.query.password;
-  firebase.auth().signInWithEmailAndPassword(email, pass).catch(error => {
-          res.status(400).send('Incorrect email or password');
-        }).then(
-          user => {
-             res.send({user: user})
+  try {
+    const email = req.query.email;
+    const pass = req.query.password;
+    firebase.auth().signInWithEmailAndPassword(email, pass).catch(error => {
+      res.status(400).send('Incorrect email or password');
+    }).then(
+      user => {
+         res.send({user: user})
 
-          }
-        )
-
+      }
+    )
+  } catch (e) {
+    res.status(500).send(e);
+  }
+  
 });
 
 router.post('/register', function (req, res) {
