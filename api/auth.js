@@ -14,6 +14,7 @@ router.post('/login', function (req, res) {
       res.status(400).send('Incorrect email or password');
     }).then(
       user => {
+        console.log('user', here);
          res.send({user: user})
       }
     )
